@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CodeHub Shortener</title>
+<style>
+body{
+background:#050505;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+background:#111;
+padding:40px;
+border-radius:30px;
+}
+
+input{
+width:80%;
+padding:15px;
+border-radius:15px;
+border:none;
+margin:20px 0;
+}
+
+button{
+padding:14px 30px;
+background:gold;
+border:none;
+border-radius:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.result{
+margin-top:30px;
+padding:20px;
+background:#1b1b1b;
+border-radius:20px;
+}
+
+a{
+color:gold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>URL Shortener</h1>
+<p>Paste a long link and shorten it instantly.</p>
+
+<form action="/shorten" method="POST">
+<input
+name="url"
+placeholder="https://example.com"
+required
+>
+<br>
+<button type="submit">Shorten</button>
+</form>
+
+{% if short_link %}
+<div class="result">
+<h3>Your Short Link:</h3>
+<a href="{{short_link}}">{{short_link}}</a>
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
